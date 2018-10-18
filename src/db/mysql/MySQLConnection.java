@@ -187,5 +187,19 @@ public class MySQLConnection implements DBConnection {
 		}
 		return -1;
 	}
+	
+	@Override
+	public void DeleteAdByUrl(String image_url) {
+		if(isNull(conn)) return;
+		try {	
+			String sql = "DELETE from ad where image_url=?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, image_url);
+			System.out.println(stmt.toString());
+			stmt.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

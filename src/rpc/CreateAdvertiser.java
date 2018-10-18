@@ -44,6 +44,7 @@ public class CreateAdvertiser extends HttpServlet {
 			JSONObject input = RpcHelper.readJsonObject(request);
 			String advertiser_name = input.getString("name");
 			double budget = input.getDouble("budget");
+			
 			long advertiser_id = conn.createAdvertiser(advertiser_name, budget);
 			RpcHelper.writeJsonObject(response,
 					new JSONObject().put("advertiser_id", advertiser_id));

@@ -54,5 +54,12 @@ public interface DBConnection {
 	 * @return
 	 */
 	public long createAd(double bid, String image_url, int advertiser_id, double ad_score);
+	
+	/**
+	 * Delete an ad
+	 * @param image_url
+	 * @return
+	 */
+	public void DeleteAdByUrl(String image_url);
 
 }

@@ -42,6 +42,7 @@ public class CreateAd extends HttpServlet {
 		DBConnection conn = DBConnectionFactory.getConnection();
 		try {
 			JSONObject input = RpcHelper.readJsonObject(request);
+			//System.out.println(input.toString());
 			double bid = input.getDouble("bid");
 			String image_url = input.getString("image_url");
 			int advertiser_id = input.getInt("advertiser_id");
@@ -55,6 +56,14 @@ public class CreateAd extends HttpServlet {
 		} finally {
 			conn.close();
 		}
+	}
+
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String image_url = req.getParameter("url");
+		DBConnection conn = DBConnectionFactory.getConnection();
+		conn.DeleteAdByUrl(image_url);
+		conn.close();
 	}
 
 }

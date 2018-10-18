@@ -29,10 +29,6 @@ public class MySQLTableCreation {
 						+ "advertiser_id int NOT NULL,ad_score float,"
 						+ "PRIMARY KEY(ad_id),"
 						+ "FOREIGN KEY(advertiser_id) REFERENCES advertiser(advertiser_id))");
-//				/*insert*/
-//				stmt.executeUpdate("INSERT INTO users()"
-//						//+ "(user_id,password,first_name,last_name)"
-//						+ "VALUES('0001','8d73173c25b3bbb66ee0f1a5ed6e5db8','Jimmy','Wang')");
 				
 				System.out.println("Import done successfully");
 
